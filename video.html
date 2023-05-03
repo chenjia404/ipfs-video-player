@@ -1,0 +1,143 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.min.css" rel="stylesheet"/>
+    <title>QKFILE播放器</title>
+    <style>
+        #hashnav {
+            display: flex;
+            max-width: 600px;
+            margin: 30px auto 100px auto;
+        }
+
+        #hashnav__input {
+            flex: 1 1 auto;
+            border-radius: 3px 0 0 3px;
+            border: 2px solid #888;
+            font-size: 19px;
+            padding: 4px 6px;
+        }
+
+        #hashnav__btn {
+            flex: 0 0 auto;
+            border-radius: 0 3px 3px 0;
+            background-color: #888;
+            color: #efefef;
+            border: 0;
+            font-size: 22px;
+        }
+
+        #my-video {
+            margin: auto;
+            max-width: 100%;
+        }
+        .hot{
+            margin: 0 auto 5px;
+        }
+        .hot a{
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<h1 style="text-align: center">QKFILE播放器</h1>
+<div id="hashnav">
+    <input id="hashnav__input" placeholder="Video Hash">
+    <button id="hashnav__btn">播放</button>
+</div>
+<body>
+
+<video
+        id="my-video"
+        class="video-js"
+        controls
+        preload="auto"
+        autoplay
+        width="640"
+        height="264"
+        data-setup="{}"
+>
+    <source id="video" src="https://dweb.link/ipfs/Qmbek7RyQyWkgtTCHcLYA8em4738L2nLeZzxJx6Xn5aH1p"
+            type="video/mp4"/>
+    <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+        >
+    </p>
+</video>
+
+
+<div style=" margin: auto; width: 400px;">
+    <br>
+    <button type="button" class="copy-btn" id="copy" data-clipboard-text="http://dweb.link/ipfs/Qmbek7RyQyWkgtTCHcLYA8em4738L2nLeZzxJx6Xn5aH1p">复制链接到浏览器全屏播放</button>
+    <p>热门播放</p>
+    <p class="hot">
+        <a href="#Qmbek7RyQyWkgtTCHcLYA8em4738L2nLeZzxJx6Xn5aH1p">寄生虫</a>
+        <a href="#QmcUHdzKgRrcJrD5Ah46HgBHF7urWDhmAnLKYwcHaLgeGP">银翼杀手2049</a>
+        <a href="#Qmb2dvm5SDSi6N6c7V9wuFZk3g6x2EwbMPWtbxovnPau76">洛杉矶之战</a>
+    </p>
+    <p class="hot">
+        <a href="#QmZmZ2D7utSZT5HzYdcfUnYKdpLz5pTA5mnFxW7WaKYQ2m">阿丽塔：战斗天使</a>
+        <a href="#QmcfFAcN1TNnSCM9TMjfsyL4GJxRN2qWzyRCAo5bno5ZN8">春潮</a>
+        <a href="#QmYeQVGNtUKmvnxhLTPT8awWTQbysBgBBj8nYD73i97daZ">极速车王</a>
+    </p>
+    <p class="hot">
+        <a href="#QmZuH8Ja9E6rpXhucoP2rGPJpisvQmu6zMt2dtRh4p2BLj">82年生的金智英</a>
+        <a href="#QmYfrUbpNE4ECisvTTVaugdbcmMfkto8S4CiUwG52ksiCv">V字仇杀队</a>
+        <a href="#QmdwKsd27Re6xo799cVcaBpnV2xdozJmgE9xWW43rcHaiD">大话西游之月光宝盒</a>
+    </p>
+    <p class="hot">
+        <a href="#QmXtk8d2uGKn85w78E53xG2AfU6vjV24Cr1Bpu8m1tTkap">大话西游之大圣娶亲</a>
+        <a href="#QmRzNNWdiL2dTog4AKwBuLakzZPLHZL9WLQ6N35m8rN2dX">犬之岛</a>
+        <a href="#QmZcQbijvNn566N2617hXASwXxKR79Rp5jMhgQssjxbq8J">黑鹰坠落</a>
+    </p>
+    <p class="hot">
+        <a href="#QmckH5UfXpcwHuRmBGb3PvcqVTisiLaSSCVsrELJg6pQbt">哈利·波特与火焰杯</a>
+        <a href="#QmcRAHSAD66XjBHAjLDhRbVdY72tjoBTtZ7Q1wR16GqWeM">星际穿越</a>
+        <a href="#Qmc26SG7UeBeJYWWXaVsptiKhMauiqa1Ngy2GCxCtgM2w1">头号玩家</a>
+    </p>
+    <p class="hot">
+        <a href="#Qmd7wZmbmDxC2bUeS5rfyrPySLY4f4H4BnksGSG4cs8jnf">蜘蛛侠：平行宇宙</a>
+        <a href="#QmPaK46bpqqavGZXjipz3j79vSogF68VFKZsXBmUmHLnYJ">阿基拉</a>
+    </p>
+</div>
+<script src="https://vjs.zencdn.net/7.6.6/video.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/mui/3.7.1/css/mui.min.css">
+<script src="https://cdn.staticfile.org/mui/3.7.1/js/mui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg+pLg9vU5Pv5QTzko=" crossorigin="anonymous"></script>
+<script>
+
+    $(function () {
+        $("#hashnav__btn").click(function () {
+            $("#my-video_html5_api").attr("src", "http://dweb.link/ipfs/" + $("#hashnav__input").val().trim());
+            $("#copy").attr("copy", "https://dweb.link/ipfs/" + $("#hashnav__input").val().trim());
+        });
+        clipboard = new Clipboard('.copy-btn',{
+            container: document.getElementById('copy')
+        });
+        clipboard.on('success', function (e) {
+            mui.toast('复制成功');
+
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function (e) {
+            mui.toast('复制失败');
+        });
+
+        if (location.hash.length === 47) {
+            $("#my-video_html5_api").attr("src", "https://dweb.link/ipfs/" + location.hash.replace("#", ""));
+        }
+
+        window.addEventListener('hashchange',function(){
+
+            if (location.hash.length === 47) {
+                $("#my-video_html5_api").attr("src", "https://dweb.link/ipfs/" + location.hash.replace("#", ""));
+            }
+        });
+    });
+
+</script>
+</body>
