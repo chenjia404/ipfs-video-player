@@ -147,7 +147,7 @@
         playingVideo: {hash: "", title: ""},
         videos: {},
         clipboardUrl: "",
-        shareUrl: route.query.shareUrl,
+        cid: route.query.cid,
         hosts: {},
         activeHosts: localStorage.getItem("active_hosts") || null,
         videoPlayer: {},
@@ -185,17 +185,16 @@
     const initVideoPlay = async () => {
         const type = route.query.type
         if (state.shareUrl && type === "video") {
-            const shareParams = state.shareUrl.split("==")
-            const hash = shareParams[0]
-            const title = shareParams[1] || "未命名"
+            const hash = state.shareUrl
+            const title = route.query.filename
+            console.log(hash)
             if (hash.length === 46) {
                 onPlayVideo(hash, title)
             }
         } else {
             if (type === "dir") {
-                const shareParams = state.shareUrl.split("==")
-                const hash = shareParams[0]
-                const title = shareParams[1] || "未命名"
+                const hash = state.shareUrl
+                const title = route.query.filename
                 if (hash.length === 46) {
                     saveShareDir(title, hash)
                 }
@@ -511,7 +510,7 @@
                 state.hosts[i].status = response.status
                 const endAt = new Date().getTime()
                 state.hosts[i].distance = endAt - startAt
-            })
+            }).catch(error => console.log('Error:', error))
         }
     }
 
@@ -549,7 +548,7 @@
     const clipboardText = () => {
         if (state.playingVideo.hash) {
             const urlArr = location.href.split("#")
-            return urlArr[0] + "#" + "?shareUrl=" + state.playingVideo.hash + "==" + state.playingVideo.title + "&type=video"
+            return urlArr[0] + "#" + "?cid=" + state.playingVideo.hash + "&filename=" + state.playingVideo.title + "&type=video"
         }
     }
 
@@ -557,7 +556,7 @@
     const onClipboard = () => {
         const clipboard = new Clipboard('.clipboard')
         clipboard.on('success', () => {
-            alert("视频连接已经复制粘贴板")
+            alert("视频链接已经复制粘贴板")
             clipboard.destroy()
         })
     }

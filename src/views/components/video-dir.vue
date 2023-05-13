@@ -100,7 +100,7 @@
     const clipboardText = (dir) => {
         if (dir && dir.hash) {
             const urlArr = location.href.split("#")
-            return urlArr[0] + "#" + "?shareUrl=" + dir.hash + "==" + dir.name + "&type=dir"
+            return urlArr[0] + "#" + "?cid=" + dir.hash + "&filename=" + dir.name + "&type=dir"
         }
     }
 
