@@ -4,10 +4,17 @@
 
 ## 使用
 
-pnpm i 
+`pnpm i`  安装依赖
 
-pnpm dev
+`pnpm dev`  调试
+
+`pnpm build` 编译
 
 ## todo
 
 支持 ipns 格式的目录
+
+多语言
+
+## 截图
+![alt 属性文本](Screenshot.png)
