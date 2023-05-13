@@ -184,8 +184,8 @@
     // 初始化视频播放(处理分享链接)
     const initVideoPlay = async () => {
         const type = route.query.type
-        if (state.shareUrl && type === "video") {
-            const hash = state.shareUrl
+        if (state.cid && type === "video") {
+            const hash = state.cid
             const title = route.query.filename
             console.log(hash)
             if (hash.length === 46) {
@@ -193,7 +193,7 @@
             }
         } else {
             if (type === "dir") {
-                const hash = state.shareUrl
+                const hash = state.cid
                 const title = route.query.filename
                 if (hash.length === 46) {
                     saveShareDir(title, hash)
