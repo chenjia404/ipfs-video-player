@@ -4,3 +4,4 @@ dist-ssr
 *.local
 .idea
 /dist/
+ipfs-video-player
