@@ -23,8 +23,8 @@
                 </div>
                 <video-dir :dirs="state.dirList" :hosts="state.activeHosts" @onPlayVideo="onPlayVideo"></video-dir>
                 <div style="display: flex;margin: 5px 0;padding: 2px">
-                    <el-input v-model="state.input.newDirName" placeholder="目录名称"></el-input>
-                    <el-input v-model="state.input.newDirHash" placeholder="目录Hash" style="margin: 0 2px"></el-input>
+                    <el-input v-model="state.input.newDirName" :placeholder="$t('directory name')"></el-input>
+                    <el-input v-model="state.input.newDirHash" :placeholder="$t('directory Hash')" style="margin: 0 2px"></el-input>
                     <el-button @click="addDir" style="margin: 0 2px">{{ $t('add directory') }}</el-button>
                 </div>
             </el-card>
@@ -520,6 +520,29 @@
         let videos = localStorage.getItem("videos")
         if (!videos) {
             const initVideos = [
+                {"title": "寄生虫", "hash": "Qmbek7RyQyWkgtTCHcLYA8em4738L2nLeZzxJx6Xn5aH1p"},
+                {"title": "银翼杀手2049", "hash": "QmcUHdzKgRrcJrD5Ah46HgBHF7urWDhmAnLKYwcHaLgeGP"},
+                {"title": "洛杉矶之战", "hash": "Qmb2dvm5SDSi6N6c7V9wuFZk3g6x2EwbMPWtbxovnPau76"},
+                {"title": "阿丽塔：战斗天使", "hash": "QmZmZ2D7utSZT5HzYdcfUnYKdpLz5pTA5mnFxW7WaKYQ2m"},
+                {"title": "春潮", "hash": "QmcfFAcN1TNnSCM9TMjfsyL4GJxRN2qWzyRCAo5bno5ZN8"},
+                {"title": "极速车王", "hash": "QmYeQVGNtUKmvnxhLTPT8awWTQbysBgBBj8nYD73i97daZ"},
+                {"title": "82年生的金智英", "hash": "QmZuH8Ja9E6rpXhucoP2rGPJpisvQmu6zMt2dtRh4p2BLj"},
+                {"title": "V字仇杀队", "hash": "QmYfrUbpNE4ECisvTTVaugdbcmMfkto8S4CiUwG52ksiCv"},
+                {"title": "大话西游之月光宝盒", "hash": "QmdwKsd27Re6xo799cVcaBpnV2xdozJmgE9xWW43rcHaiD"},
+                {"title": "大话西游之大圣娶亲", "hash": "QmXtk8d2uGKn85w78E53xG2AfU6vjV24Cr1Bpu8m1tTkap"},
+                {"title": "犬之岛", "hash": "QmRzNNWdiL2dTog4AKwBuLakzZPLHZL9WLQ6N35m8rN2dX"},
+                {"title": "黑鹰坠落", "hash": "QmZcQbijvNn566N2617hXASwXxKR79Rp5jMhgQssjxbq8J"},
+                {"title": "哈利·波特与火焰杯", "hash": "QmckH5UfXpcwHuRmBGb3PvcqVTisiLaSSCVsrELJg6pQbt"},
+                {"title": "星际穿越", "hash": "QmcRAHSAD66XjBHAjLDhRbVdY72tjoBTtZ7Q1wR16GqWeM"},
+                {"title": "头号玩家", "hash": "Qmc26SG7UeBeJYWWXaVsptiKhMauiqa1Ngy2GCxCtgM2w1"},
+                {"title": "蜘蛛侠：平行宇宙", "hash": "Qmd7wZmbmDxC2bUeS5rfyrPySLY4f4H4BnksGSG4cs8jnf"},
+                {"title": "阿基拉", "hash": "QmPaK46bpqqavGZXjipz3j79vSogF68VFKZsXBmUmHLnYJ"},
+                {"title": "金发梦露", "hash": "QmbzAiHY1cSHdkktx64u4jctfj5TUeJY8fk5QXAFokUbpo"},
+{"title": "独行月球", "hash": "QmPMw2eEM693KRCEGACgVGRWShXi5dzbhmCcQU99zD47ss"},
+{"title": "太空旅客", "hash": "QmdxpUVnvFnert9nmEkzwwz2tWdavU3fUQzrgBsTZP5yyG"},
+{"title": "肖申克的救赎", "hash": "QmRUYeMkvirV4frGX8wcntCq6x5GqDixAjZnFj5Jg1E3qj"},
+{"title": "彩绘心天地", "hash": "QmXg1c6qPtoQAyfrXrWnuDrUgFehnt4kLvv1hxheMUeFBC"},
+{"title": "疯狂动物城", "hash": "QmUKaQwN2ppapUEFhbHsKoVXn2yBRM7mLpu5HQv9am7dB7"},
             ]
             localStorage.setItem("videos", JSON.stringify(initVideos))
             state.videos = initVideos
