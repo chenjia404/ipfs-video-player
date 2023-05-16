@@ -16,9 +16,9 @@ export default {
   "Active": "Active",
   "Actived": "Actived",
   "add line": "add line",
-  "video list":"video list",
-  "add video":"add video",
-  "video title":"video title",
-  "video hash":"video title",
-  "line link":"line link http(s)://"
+  "video list": "video list",
+  "add video": "add video",
+  "video title": "video title",
+  "video hash": "video title",
+  "line link": "line link http(s)://"
 };
