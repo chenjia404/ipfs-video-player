@@ -3,10 +3,10 @@
         <div class="player-box">
             <el-card :body-style="{padding:'2px'}">
                 <div style="display: flex;justify-content: space-between;margin: 5px">
-                    <el-tag>播放窗口</el-tag>
+                    <el-tag>{{ $t('playWindow') }}</el-tag>
                     <el-tag>{{state.playingVideo.title}}</el-tag>
                     <el-button v-if="state.playingVideo" class="clipboard" size="small"
-                               :data-clipboard-text="clipboardText()" @click="onClipboard">分享
+                               :data-clipboard-text="clipboardText()" @click="onClipboard">{{ $t('share') }}
                     </el-button>
                 </div>
                 <video style="width: 100%" crossorigin="anonymous" controls :autoplay="state.autoplay" preload="auto"
@@ -19,13 +19,13 @@
         <div class="dir-box">
             <el-card :body-style="{padding:'2px'}">
                 <div style="margin: 5px">
-                    <el-tag>视频目录</el-tag>
+                    <el-tag>{{ $t('videoCatalog') }}</el-tag>
                 </div>
                 <video-dir :dirs="state.dirList" :hosts="state.activeHosts" @onPlayVideo="onPlayVideo"></video-dir>
                 <div style="display: flex;margin: 5px 0;padding: 2px">
                     <el-input v-model="state.input.newDirName" placeholder="目录名称"></el-input>
                     <el-input v-model="state.input.newDirHash" placeholder="目录Hash" style="margin: 0 2px"></el-input>
-                    <el-button @click="addDir" style="margin: 0 2px">添加目录</el-button>
+                    <el-button @click="addDir" style="margin: 0 2px">{{ $t('add directory') }}</el-button>
                 </div>
             </el-card>
         </div>
@@ -33,7 +33,7 @@
         <div class="favorite-box">
             <el-card :body-style="{padding:'2px'}">
                 <div style="margin: 5px">
-                    <el-tag>收藏视频</el-tag>
+                    <el-tag>{{ $t('favorite video') }}</el-tag>
                 </div>
                 <el-card :body-style="{padding:'2px'}" v-for="(favorite,index) in state.favoriteList" :key="index">
                     <div style="display: flex;justify-content: space-between;padding: 2px">
@@ -41,9 +41,9 @@
                             <el-tag>{{favorite.title}}</el-tag>
                         </div>
                         <div>
-                            <el-button size="small" type="danger" @click="delFavorite(index)">删除</el-button>
+                            <el-button size="small" type="danger" @click="delFavorite(index)">{{ $t('delete') }}</el-button>
                             <el-button size="small" type="success" @click="onPlayVideo(favorite.hash,favorite.title)">
-                                播放
+                                {{ $t('play') }}
                             </el-button>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
 
         <div class="history-box">
             <el-card :body-style="{padding: '5px'}">
-                <el-tag style="margin: 5px 0">播放历史</el-tag>
+                <el-tag style="margin: 5px 0">{{ $t('play history') }}</el-tag>
                 <el-card v-for="(history,index) in state.histories" :key="index" :body-style="{padding: '2px'}">
                     <div style="display: flex;justify-content: space-between">
                         <div>
@@ -61,9 +61,9 @@
                             <el-tag>{{showTime(history.currentTime)}}</el-tag>
                         </div>
                         <div>
-                            <el-button size="small" type="danger" @click="delHistory(index)">删除</el-button>
+                            <el-button size="small" type="danger" @click="delHistory(index)">{{ $t('delete') }}</el-button>
                             <el-button size="small" type="success"
-                                       @click="onPlayVideo(history.hash,history.title,history.currentTime)">播放
+                                       @click="onPlayVideo(history.hash,history.title,history.currentTime)">{{ $t('play') }}
                             </el-button>
                         </div>
                     </div>
@@ -75,28 +75,28 @@
         <div class="hosts-box">
             <el-card :body-style="{padding:'2px'}">
                 <div style="margin: 5px">
-                    <el-tag>线路列表</el-tag>
+                    <el-tag>{{ $t('line list') }}</el-tag>
                 </div>
                 <el-card v-for="(hosts,index) in state.hosts" :key="index" :body-style="{padding:'2px'}">
                     <div style="display: flex;justify-content: space-between">
 
                         <div>
                             <el-tag style="margin: 0 2px">{{hosts.url}}</el-tag>
-                            <el-tag>延迟 {{hosts.distance}}</el-tag>
+                            <el-tag> {{ $t('distance') }} {{hosts.distance}}</el-tag>
                         </div>
                         <div>
-                            <el-button size="small" v-if="hostsIsActive(hosts)" type="primary">激活中</el-button>
+                            <el-button size="small" v-if="hostsIsActive(hosts)" type="primary">{{ $t('Actived') }} </el-button>
                             <div v-else>
-                                <el-button size="small" @click="onSetActiveHosts(hosts)" type="success">激活</el-button>
-                                <el-button size="small" @click="delHosts(index)" type="danger">删除</el-button>
+                                <el-button size="small" @click="onSetActiveHosts(hosts)" type="success">{{ $t('Active') }}</el-button>
+                                <el-button size="small" @click="delHosts(index)" type="danger">{{ $t('delete') }}</el-button>
                             </div>
                         </div>
                     </div>
 
                 </el-card>
                 <div style="display: flex;margin: 5px 0;padding: 2px">
-                    <el-input v-model="state.input.newHosts" placeholder="线路链接 http(s)://"></el-input>
-                    <el-button @click="addHosts" style="margin: 0 2px">添加线路</el-button>
+                    <el-input v-model="state.input.newHosts" :placeholder="$t('line link')"></el-input>
+                    <el-button @click="addHosts" style="margin: 0 2px">{{ $t('add line') }}</el-button>
                 </div>
             </el-card>
         </div>
@@ -104,7 +104,7 @@
         <div class="video-box">
             <el-card :body-style="{padding:'2px'}">
                 <div style="margin: 5px">
-                    <el-tag>视频列表</el-tag>
+                    <el-tag>{{ $t('video list') }}</el-tag>
                 </div>
                 <el-card v-for="(video,index) in state.videos" :key="index" :body-style="{padding:'2px'}">
                     <div style="display: flex;justify-content: space-between">
@@ -112,19 +112,19 @@
                             <el-tag>{{video.title}}</el-tag>
                         </div>
                         <div>
-                            <el-button type="danger" size="small" @click="delVideo(index)">删除</el-button>
-                            <el-button type="success" size="small" v-if="isFavorite(video.hash)">已收藏</el-button>
-                            <el-button size="small" v-else @click="addFavorite(video.hash,video.title)">收藏</el-button>
-                            <el-button type="primary" size="small" @click="onPlayVideo(video.hash,video.title)">播放
+                            <el-button type="danger" size="small" @click="delVideo(index)">{{ $t('delete') }}</el-button>
+                            <el-button type="success" size="small" v-if="isFavorite(video.hash)">{{ $t('Favorited') }}</el-button>
+                            <el-button size="small" v-else @click="addFavorite(video.hash,video.title)">{{ $t('Favorite') }}</el-button>
+                            <el-button type="primary" size="small" @click="onPlayVideo(video.hash,video.title)">{{ $t('play') }}
                             </el-button>
                         </div>
                     </div>
                 </el-card>
 
                 <div style="display: flex;margin: 5px 0;padding: 2px">
-                    <el-input v-model="state.input.newVideoTitle" placeholder="视频标题"></el-input>
-                    <el-input style="margin: 0 2px" v-model="state.input.newVideoHash" placeholder="视频hash"></el-input>
-                    <el-button @click="addVideo()" style="margin: 0 2px">添加视频</el-button>
+                    <el-input v-model="state.input.newVideoTitle" :placeholder="$t('video title')"></el-input>
+                    <el-input style="margin: 0 2px" v-model="state.input.newVideoHash" :placeholder="$t('video hash')"></el-input>
+                    <el-button @click="addVideo()" style="margin: 0 2px">{{ $t('add video') }}</el-button>
                 </div>
             </el-card>
         </div>
@@ -138,6 +138,7 @@
     import Clipboard from 'clipboard'
     import {onMounted, reactive} from 'vue'
     import {useRoute} from "vue-router"
+    
 
     const route = useRoute()
 
@@ -519,23 +520,6 @@
         let videos = localStorage.getItem("videos")
         if (!videos) {
             const initVideos = [
-                {"title": "寄生虫", "hash": "Qmbek7RyQyWkgtTCHcLYA8em4738L2nLeZzxJx6Xn5aH1p"},
-                {"title": "银翼杀手2049", "hash": "QmcUHdzKgRrcJrD5Ah46HgBHF7urWDhmAnLKYwcHaLgeGP"},
-                {"title": "洛杉矶之战", "hash": "Qmb2dvm5SDSi6N6c7V9wuFZk3g6x2EwbMPWtbxovnPau76"},
-                {"title": "阿丽塔：战斗天使", "hash": "QmZmZ2D7utSZT5HzYdcfUnYKdpLz5pTA5mnFxW7WaKYQ2m"},
-                {"title": "春潮", "hash": "QmcfFAcN1TNnSCM9TMjfsyL4GJxRN2qWzyRCAo5bno5ZN8"},
-                {"title": "极速车王", "hash": "QmYeQVGNtUKmvnxhLTPT8awWTQbysBgBBj8nYD73i97daZ"},
-                {"title": "82年生的金智英", "hash": "QmZuH8Ja9E6rpXhucoP2rGPJpisvQmu6zMt2dtRh4p2BLj"},
-                {"title": "V字仇杀队", "hash": "QmYfrUbpNE4ECisvTTVaugdbcmMfkto8S4CiUwG52ksiCv"},
-                {"title": "大话西游之月光宝盒", "hash": "QmdwKsd27Re6xo799cVcaBpnV2xdozJmgE9xWW43rcHaiD"},
-                {"title": "大话西游之大圣娶亲", "hash": "QmXtk8d2uGKn85w78E53xG2AfU6vjV24Cr1Bpu8m1tTkap"},
-                {"title": "犬之岛", "hash": "QmRzNNWdiL2dTog4AKwBuLakzZPLHZL9WLQ6N35m8rN2dX"},
-                {"title": "黑鹰坠落", "hash": "QmZcQbijvNn566N2617hXASwXxKR79Rp5jMhgQssjxbq8J"},
-                {"title": "哈利·波特与火焰杯", "hash": "QmckH5UfXpcwHuRmBGb3PvcqVTisiLaSSCVsrELJg6pQbt"},
-                {"title": "星际穿越", "hash": "QmcRAHSAD66XjBHAjLDhRbVdY72tjoBTtZ7Q1wR16GqWeM"},
-                {"title": "头号玩家", "hash": "Qmc26SG7UeBeJYWWXaVsptiKhMauiqa1Ngy2GCxCtgM2w1"},
-                {"title": "蜘蛛侠：平行宇宙", "hash": "Qmd7wZmbmDxC2bUeS5rfyrPySLY4f4H4BnksGSG4cs8jnf"},
-                {"title": "阿基拉", "hash": "QmPaK46bpqqavGZXjipz3j79vSogF68VFKZsXBmUmHLnYJ"},
             ]
             localStorage.setItem("videos", JSON.stringify(initVideos))
             state.videos = initVideos

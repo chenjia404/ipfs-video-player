@@ -1,0 +1,23 @@
+export default {
+    "playWindow": "播放窗口",
+    "share": "分享",
+    "videoCatalog":"视频目录",
+    "directory name":"目录名称",
+    "directory Hash":"目录Hash",
+    "add directory":"添加目录",
+    "favorite video": "喜欢的视频",
+    "play": "播放",
+    "delete": "删除",
+    "play history": "播放历史",
+    "Favorited": "喜欢的",
+    "Favorite": "喜欢",
+    "line list": "线路列表",
+    "distance": "延迟",
+    "Active": "激活",
+    "Actived": "已激活",
+    "add line": "添加线路",
+    "add video":"添加视频",
+    "video title":"视频标题",
+    "video hash":"视频title",
+    "line link":"线路链接 http(s)://"
+  };
